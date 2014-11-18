@@ -2,6 +2,16 @@
 
 @section('content')
 
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
 <form action="{{ URL::to('register') }}" method="post">
   <fieldset>
     <legend>Sign Up</legend>
@@ -11,7 +21,7 @@
     </label>
 
     <label>密码
-      <input type="text" name="email" placeholder="password">
+      <input type="text" name="password" placeholder="password">
     </label>
 
     <button type="submit" class="button expand">Submit</button>

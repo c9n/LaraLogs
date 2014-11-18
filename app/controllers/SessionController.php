@@ -1,6 +1,13 @@
 <?php
 
+use Peak\Forms\SignInForm;
+
 class SessionController extends \BaseController {
+	private $signInForm;
+
+	public function __construct(SignInForm $signInForm) {
+		$this->signInForm = $signInForm;
+	}
 
 	/**
 	 * Show the form for creating a new resource.
@@ -22,7 +29,10 @@ class SessionController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$formData = Input::only('email', 'password');
+		$this->signInForm->validate($formData);
+
+		return 'sdf';
 	}
 
 

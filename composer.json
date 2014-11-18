@@ -5,7 +5,8 @@
 	"license": "MIT",
 	"type": "project",
 	"require": {
-		"laravel/framework": "4.2.*"
+		"laravel/framework": "4.2.*",
+		"laracasts/validation": "1.2.2"
 	},
 	"autoload": {
 		"classmap": [
@@ -15,7 +16,10 @@
 			"app/database/migrations",
 			"app/database/seeds",
 			"app/tests/TestCase.php"
-		]
+		],
+		"psr-4": {
+		  "Peak\\": "app/Peak"
+		}
 	},
 	"scripts": {
 		"post-install-cmd": [
