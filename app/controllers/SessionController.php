@@ -29,10 +29,10 @@ class SessionController extends \BaseController {
 	 */
 	public function store()
 	{
-		$formData = Input::only('email', 'password');
+		$formData = Input::only('email', 'password', 'name');
 		$this->signInForm->validate($formData);
 
-		return 'sdf';
+		return 'winter is coming';
 	}
 
 

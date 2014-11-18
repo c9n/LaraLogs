@@ -20,6 +20,10 @@
       <input type="text" name="email" placeholder="lynn@example.com">
     </label>
 
+    <label>用户名
+      <input type="text" name="name" placeholder="Lynn">
+    </label>
+
     <label>密码
       <input type="text" name="password" placeholder="password">
     </label>
