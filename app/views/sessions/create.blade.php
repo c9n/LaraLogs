@@ -17,15 +17,15 @@
     <legend>Sign Up</legend>
 
     <label>邮箱
-      <input type="text" name="email" placeholder="lynn@example.com">
+      <input type="text" name="email" placeholder="lynn@example.com" value="{{ Input::old('email') }}" />
     </label>
 
     <label>用户名
-      <input type="text" name="name" placeholder="Lynn">
+      <input type="text" name="name" placeholder="Lynn" value="{{ Input::old('name') }}" />
     </label>
 
     <label>密码
-      <input type="text" name="password" placeholder="password">
+      <input type="password" name="password" placeholder="password"/>
     </label>
 
     <button type="submit" class="button expand">Submit</button>
