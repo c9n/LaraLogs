@@ -7,6 +7,7 @@ class SessionController extends \BaseController {
 
 	public function __construct(SignInForm $signInForm) {
 		$this->signInForm = $signInForm;
+		$this->beforeFilter('guest', ['except' => 'destroy']);
 	}
 
 	/**
@@ -17,7 +18,7 @@ class SessionController extends \BaseController {
 	 */
 	public function create()
 	{
-		return View::make('sessions.create');
+		return View::make('sessions.login');
 	}
 
 
@@ -29,10 +30,14 @@ class SessionController extends \BaseController {
 	 */
 	public function store()
 	{
-		$formData = Input::only('email', 'password', 'name');
+		$formData = Input::only('email', 'password');
 		$this->signInForm->validate($formData);
 
-		return 'winter is coming';
+		if ( ! Auth::attempt($formData)) {
+			return Redirect::back()->withInput();
+		}
+
+		return Redirect::intended('statuses');
 	}
 
 
@@ -40,12 +45,13 @@ class SessionController extends \BaseController {
 	 * Remove the specified resource from storage.
 	 * DELETE /session/{id}
 	 *
-	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
+	public function destroy()
 	{
-		//
+		Auth::logout();
+
+		return Redirect::to('/');
 	}
 
 }

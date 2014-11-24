@@ -11,6 +11,5 @@ class SignInForm extends FormValidator {
     protected $rules = [
         'email'    => 'required|email',
         'password' => 'required|min:6|alpha_num',
-        'name' => 'required|min:4'
     ];
 }
