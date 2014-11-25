@@ -2,10 +2,6 @@
 
 Route::get('/', function()
 {
-	$user = User::where('email', 'homlean@gmail.com')->first();
-
-	Auth::login($user);
-
 	return 'Peak';
 });
 
